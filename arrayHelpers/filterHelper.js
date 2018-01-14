@@ -36,3 +36,67 @@ greens.filter(function(green) {
 
 });
 
+// Filter related content
+
+var post = { id: 4, title: 'New post' };
+
+var comments = [ 
+  { postId: 4, content: 'hello' },
+  { postId: 3, content: 'bonjour' },
+  { postId: 4, content: 'coucou' },
+];
+
+function commentsForpost(post, comments) {
+    return comments.filter(function(comment) { 
+          return comment.postId === post.id;
+    }); 
+}
+
+
+commentsForpost(post, comments);
+
+//exercice 1
+
+var numbers = [15, 25, 35, 45, 55, 65, 75, 85, 95];
+
+var filteredNumbers = numbers.filter(function(number) { 
+    return number > 50;
+});
+
+
+
+//exercice 2
+//Filter the array of users, only returning users who 
+//have admin level access.  
+//Assign the result to the variable 'filteredUsers'. 
+//Don't forget to use the 'return' keyword in the function!
+
+var users = [
+ { id: 1, admin: true },  
+ { id: 2, admin: false },
+ { id: 3, admin: false },
+ { id: 4, admin: false },
+ { id: 5, admin: true },
+];
+
+var filteredUsers = users.filter(function(user) { 
+    return user.admin;
+});
+
+//exercice 3
+var numbers = [10, 20, 30];
+
+
+function reject(array, iteratorFunction) {
+    return array.filter(function(arr){
+        return !iteratorFunction(arr);
+    });
+}
+
+var lessThanFifteen = reject(numbers, function(number){
+  return number > 15;
+}); 
+
+lessThanFifteen;
+
+
